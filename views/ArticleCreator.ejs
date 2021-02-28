@@ -1,0 +1,21 @@
+<%- include('components/header') -%>
+<form action="/articles/createArticle" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" name="title">
+    </div>
+      <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" class="form-control" name="description">
+    </div>
+    <div class="form-group">
+      <label for="content">Content:</label>
+      <textarea name="content"> </textarea>
+    </div>
+    <div class="form-group">
+      <label for="articleImg">Image:</label>
+      <input type="file" class="form-control" name="articleImg">
+    </div>
+     <button type="submit" value="Add new article" class="btn btn-primary">Submit</button>
+  </form>
+<%- include('components/footer') -%>

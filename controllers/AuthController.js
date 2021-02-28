@@ -64,7 +64,7 @@ async  loginUser(req,res){
       return res.render("login",{message:`Email or password is incorrect`})
       }
        req.session.user=user
-       res.redirect("/todo")
+       res.redirect("/admin")
     }catch(err){
          console.log(err)
     return res.render("register",{message:err.message})
