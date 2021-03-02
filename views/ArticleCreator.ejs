@@ -1,21 +1,16 @@
-<%- include('components/header') -%>
-<form action="/articles/createArticle" method="post" enctype="multipart/form-data">
-    <div class="form-group">
-      <label for="title">Title:</label>
-      <input type="text" name="title">
-    </div>
-      <div class="form-group">
-      <label for="description">Description</label>
-      <input type="text" class="form-control" name="description">
-    </div>
-    <div class="form-group">
-      <label for="content">Content:</label>
-      <textarea name="content"> </textarea>
-    </div>
-    <div class="form-group">
-      <label for="articleImg">Image:</label>
-      <input type="file" class="form-control" name="articleImg">
-    </div>
-     <button type="submit" value="Add new article" class="btn btn-primary">Submit</button>
-  </form>
-<%- include('components/footer') -%>
+<%- include("components/header.ejs") -%>
+<div class="container text-center">
+    <h1>Add New Article</h1>
+<form action="/admin/articles/articleCreate" method="post" enctype="multipart/form-data">
+    <p>Title<br><input type="text" name="title"></p>
+    <p>Description<br><input type="text" name="description"></p>
+    <p>Content<br><textarea name="content">
+        
+    </textarea></p>
+    <p><input type="file" name="articleImg">
+    
+    </p>
+    <p><input type="submit" value="Add New Article"></p>
+</form>
+</div>
+<%- include("components/footer.ejs") -%>

@@ -1,5 +1,4 @@
-const { Article }=require("../models/articleModel")
-
+const { Article }=require("../models/ArticleModel")
 
 class AdminController{
     AdminView(req, res) {
@@ -9,9 +8,24 @@ async getAllArticles(req, res){
         let Articles=await Article.find()
         res.render("adminArticle", {articles:Articles})
     }
-   articleCreateView(req,res){
-        res.render("ArticleCreator")  
 
+    createArticleView(req, res){
+        res. render("ArticleCreator")
     }
-}
-module.exports= new AdminController()
+
+ async addNewArticle(req, res){
+let newArticle = new Article ({
+    title: req.body.title,
+    description: req.body.description,
+    content:req.body.content,
+    image:req.file.filename,
+})
+let savedArticle=await newArticle.save()
+res.redirect("/admin/articles")
+      }
+      async deleteArticle(req,res){
+        let Articles=await Article.deleteOne({_id:req.params.id})
+        res.redirect("/admin/articles")
+        }
+    }
+module.exports=new AdminController()
